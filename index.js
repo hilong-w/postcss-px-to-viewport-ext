@@ -40,7 +40,7 @@ module.exports = postcss.plugin('postcss-px-to-viewport', function (options) {
       // Add exclude option to ignore some files like 'node_modules'
       var file = rule.source && rule.source.input.file;
       if (typeof opts.viewportWidth === 'function') {
-        opts.viewportWidth.call(file, opts)
+        opts.viewportWidth = opts.viewportWidth.call(file)
       }
 
       if (opts.include && file) {
